@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>For You ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(to top, #ffdde1, #ee9ca7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      font-family: Arial;
+      overflow: hidden;
+    }
+    h1 {
+      color: white;
+      text-shadow: 2px 2px 10px #000;
+    }
+    .btn {
+      padding: 15px 30px;
+      margin: 10px;
+      font-size: 18px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+    }
+    #yes {
+      background: #4caf50;
+      color: white;
+    }
+    #no {
+      background: #f44336;
+      color: white;
+      position: absolute;
+    }
+    .flower {
+      position: absolute;
+      font-size: 24px;
+      animation: fall 5s linear infinite;
+    }
+    @keyframes fall {
+      0% {transform: translateY(-10vh);}
+      100% {transform: translateY(110vh);}
+    }
+  </style>
+</head>
+<body>
+
+<h1>Will you be mine, Saira? ❤️</h1>
+
+<button id="yes" class="btn" onclick="alert('I Love You ❤️')">YES</button>
+<button id="no" class="btn" onmouseover="moveNo()">NO</button>
+
+<script>
+function moveNo(){
+  let x = Math.random() * window.innerWidth;
+  let y = Math.random() * window.innerHeight;
+  document.getElementById('no').style.left = x + 'px';
+  document.getElementById('no').style.top = y + 'px';
+}
+
+function createFlower(){
+  let f = document.createElement('div');
+  f.classList.add('flower');
+  f.innerHTML = "🌸";
+  f.style.left = Math.random() * window.innerWidth + "px";
+  f.style.fontSize = (20 + Math.random()*30) + "px";
+  document.body.appendChild(f);
+
+  setTimeout(()=>{f.remove();},5000);
+}
+setInterval(createFlower, 300);
+</script>
+
+</body>
+</html>
